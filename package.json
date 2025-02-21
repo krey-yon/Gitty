@@ -1,0 +1,63 @@
+{
+  "name": "gittye",
+  "displayName": "gittye",
+  "publisher": "Kreyon",
+  "icon": "images/icon.png",
+  "description": "Automates the process of summarizing your coding activity and committing it to a GitHub repository",
+  "version": "0.0.5",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "authentication": [
+    "github"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "gittye.updateToken",
+        "title": "Update Token for gittye"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krey-yon/GittyE"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@octokit/rest": "^21.0.2",
+    "octokit": "^4.0.2"
+  }
+}
